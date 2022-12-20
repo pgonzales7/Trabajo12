@@ -42,6 +42,13 @@ button.onclick=function(e){
     insertarEmpleado();
 }
 
+function crearEmpleado(){
+    lista.push({...userAdmin});
+
+    
+    return lista;
+}
+
 function insertarEmpleado(){
     let nombreV = prompt("Escribe tu nombre");
     let apellidoV = prompt("Escribe tu apellido");
@@ -52,7 +59,7 @@ function insertarEmpleado(){
         return;
     }
 
-    userAdmin.id = generarId();    
+    userAdmin.id = lista.length+0;    
     userAdmin.nombre = nombreV;
     userAdmin.apellido = apellidoV;
     userAdmin.edad = edadV;
@@ -64,11 +71,4 @@ function insertarEmpleado(){
 
     console.log(generarId);
     crearEmpleado();
-}
-
-function crearEmpleado(){
-    lista.push({...userAdmin});
-
-    
-    return lista;
 }
