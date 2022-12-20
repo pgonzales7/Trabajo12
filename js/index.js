@@ -15,6 +15,12 @@ const button = document.createElement("button");
 button.innerHTML="Validar";
 root.append(button);
 
+
+const btnEliminar = document.createElement("button");
+btnEliminar.innerHTML="Eliminar";
+btnEliminar.disabled=true;
+root.append(btnEliminar);
+
 // El admin debe poder crear un nuevo registro de usuario utilizando la funcion 10. (Pueden utilizar un boton que diga "Crear Usuario")
 
 // objeto creado
@@ -39,8 +45,18 @@ let lista =[];
 
 button.onclick=function(e){
     e.preventDefault();
+    
+    if(lista.length>1){
+        btnEliminar.disabled=false;
+    }
     insertarEmpleado();
 }
+
+btnEliminar.onclick=function(e){
+    e.preventDefault();
+    eliminarData();
+}
+
 
 
 function crearEmpleado(){
@@ -75,3 +91,15 @@ function insertarEmpleado(){
     crearEmpleado();
 }
 
+
+
+// Eliminar
+// Eliminar Empleado
+function eliminarData(){
+
+    let id = parseInt(prompt("Ingrese el id a eliminar"));
+
+    lista = lista.filter(data=>data.id !== id);
+
+    console.log(lista);
+}
