@@ -29,17 +29,25 @@ let userAdmin = {
 // array para recbir objeto
 let lista =[];
 
-const generarId=()=>{
-    const random = Math.random().toString(32).substring(2);
+// const generarId=()=>{
+//     const random = Math.random().toString(32).substring(2);
 
-    const fecha = Date.now().toString(32);
-    return random+fecha;
-}
+//     const fecha = Date.now().toString(32);
+//     return random+fecha;
+// }
 
 
 button.onclick=function(e){
     e.preventDefault();
     insertarEmpleado();
+}
+
+
+function crearEmpleado(){
+    lista.push({...userAdmin});
+
+    
+    return lista;
 }
 
 function insertarEmpleado(){
@@ -52,7 +60,8 @@ function insertarEmpleado(){
         return;
     }
 
-    userAdmin.id = generarId();    
+    // userAdmin.id = generarId();    
+    userAdmin.id = lista.length+0;
     userAdmin.nombre = nombreV;
     userAdmin.apellido = apellidoV;
     userAdmin.edad = edadV;
@@ -66,9 +75,3 @@ function insertarEmpleado(){
     crearEmpleado();
 }
 
-function crearEmpleado(){
-    lista.push({...userAdmin});
-
-    
-    return lista;
-}
